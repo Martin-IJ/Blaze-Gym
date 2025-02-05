@@ -94,7 +94,7 @@ const Footer = () => {
       </div>
 
       {/* Copyright */}
-      <p className="bg-primary text-center flex justify-center mt-5 items-center text-sm h-10 text-white">
+      <p className="bg-primary py-2 md:py-4 text-center flex flex-wrap justify-center mt-5 items-center text-sm text-white">
         &copy; {currentYear} Blaze Gym Fitness. All Rights Reserved.{" "}
         <span className="text-slate-400 pl-1">
           Designed by{" "}

@@ -126,14 +126,14 @@ const Header = () => {
                   </li>
                 </Link>
 
-                <li className="text-white ml-7">
-                  <Link href="/membership-plan">
+                <Link href="/membership-plan">
+                  <li className="text-white ml-7" onClick={closeNavbar}>
                     {" "}
                     <Button className="text-lg py-7 px-7">
                       Become a Member
                     </Button>{" "}
-                  </Link>
-                </li>
+                  </li>
+                </Link>
               </ul>
             </div>
           </div>

@@ -10,6 +10,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export function HeroSection() {
   const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
@@ -38,7 +39,7 @@ export function HeroSection() {
             Achieve your fitness goals with expert coaching, top-tier equipment,
             and a supportive community. Start your journey today!
           </p>
-          <Button className="py-5 px-10">Join Now</Button>
+          <Link href='/membership-plan'><Button className="py-5 px-10">Join Now</Button></Link>
         </div>
       </div>
       <CarouselContent>
