@@ -8,6 +8,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import Logo from "../Logo/Logo";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -33,7 +34,7 @@ const Header = () => {
       <div className="h-[85px] lg:h-[100px] px-10 container mx-auto flex gap-5 items-center justify-between flex-wrap md:flex-nowrap text-xl">
         <div className="flex items-center">
           <Link href="/" className="font-black text-primary">
-            Blaze Gym
+            <Logo />
           </Link>
         </div>
 
@@ -48,19 +49,19 @@ const Header = () => {
           </li>
 
           <li className="hover:border-b-4 border-primary hover:text-primary duration-300 transition-all">
-            <Link href="/"> About Us </Link>
+            <Link href="/about-us"> About Us </Link>
           </li>
 
           <li className="hover:border-b-4 border-primary hover:text-primary duration-300 transition-all">
-            <Link href="/"> Shop </Link>
+            <Link href="/shop"> Shop </Link>
           </li>
 
           <li className="hover:border-b-4 border-primary hover:text-primary duration-300 transition-all">
-            <Link href="/"> Contact </Link>
+            <Link href="/contact-us"> Contact </Link>
           </li>
 
           <li className="text-white">
-            <Link href="/">
+            <Link href="/membership-plan">
               {" "}
               <Button className="text-lg py-7 px-7">
                 Become a Member
@@ -98,7 +99,7 @@ const Header = () => {
                   </li>
                 </Link>
 
-                <Link href="/">
+                <Link href="/about-us">
                   <li
                     onClick={closeNavbar}
                     className="p-7 hover:bg-slate-100 hover:text-primary hover:border-l-4 border-primary duration-500 transition-all"
@@ -107,7 +108,7 @@ const Header = () => {
                   </li>
                 </Link>
 
-                <Link href="/">
+                <Link href="/shop">
                   <li
                     onClick={closeNavbar}
                     className="p-7 hover:bg-slate-100 hover:text-primary hover:border-l-4 border-primary duration-500 transition-all"
@@ -116,7 +117,7 @@ const Header = () => {
                   </li>
                 </Link>
 
-                <Link href="/">
+                <Link href="/contact-us">
                   <li
                     onClick={closeNavbar}
                     className="p-7 hover:bg-slate-100 hover:text-primary hover:border-l-4 border-primary duration-500 transition-all"
@@ -126,7 +127,7 @@ const Header = () => {
                 </Link>
 
                 <li className="text-white ml-7">
-                  <Link href="/">
+                  <Link href="/membership-plan">
                     {" "}
                     <Button className="text-lg py-7 px-7">
                       Become a Member

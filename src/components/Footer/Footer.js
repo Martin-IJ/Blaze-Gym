@@ -2,11 +2,14 @@ import Link from "next/link";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Table, TableBody, TableCell, TableHead, TableRow } from "../ui/table";
+import Logo from "../Logo/Logo";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="mt-16">
+    <footer className="">
+      <div className="w-full h-[2px] mb-4 bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+
       <div className="container mx-auto px-4">
         <div className="md:flex flex-wrap gap-16 justify-between space-y-16 md:space-y-0">
           <div className="flex-1">
@@ -15,7 +18,7 @@ const Footer = () => {
                 href="/"
                 className="font-black text-[30px] text-primary"
               >
-                Blaze Gym
+                <Logo />
               </Link>
             </div>
             <p className="text-sm">
