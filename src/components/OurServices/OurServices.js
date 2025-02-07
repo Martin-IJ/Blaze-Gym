@@ -43,12 +43,12 @@ export default function OurServices() {
               className="bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <div className="relative w-full h-48 mb-4 rounded-md overflow-hidden">
-              <Image
-                alt={service.title}
-                className="object-cover object-center transition-all duration-500"
-                fill
-                src={service.image}
-              />
+                <Image
+                  alt={service.title}
+                  className="object-cover img scale-animation object-center transition-all duration-500"
+                  fill
+                  src={service.image}
+                />
               </div>
               <div className="flex justify-center mb-4">{service.icon}</div>
               <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>

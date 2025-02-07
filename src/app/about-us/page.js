@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function AboutUs() {
   const teamMembers = [
@@ -93,12 +94,12 @@ export default function AboutUs() {
               key={index}
               className="bg-white shadow-md max-w-[400px] w-full mx-auto"
             >
-              <div className="relative w-full h-60">
+              <div className="relative w-full h-60 rounded-t-lg overflow-hidden">
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover rounded-t-lg"
+                  className="object-cover img scale-animation"
                 />
               </div>
               <CardHeader className="text-center">
@@ -112,7 +113,6 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* Call to Action */}
       <section className="bg-slate-200 py-16 px-6 text-center">
         <h2 className="text-4xl font-bold text-gray-900 mb-4">
           Ready to Join Us?
@@ -120,9 +120,11 @@ export default function AboutUs() {
         <p className="text-lg text-gray-800 mb-6">
           Become part of our fitness family and start your transformation today.
         </p>
-        <Button className="bg-gray-900 text-white px-6 py-3 text-lg">
-          Join Now
-        </Button>
+        <Link href="/membership-plan">
+          <Button className="bg-gray-900 hover:bg-gray-700 text-white px-6 py-3 text-lg">
+            Join Now
+          </Button>
+        </Link>
       </section>
     </main>
   );

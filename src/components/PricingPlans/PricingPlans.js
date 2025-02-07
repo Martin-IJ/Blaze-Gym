@@ -27,7 +27,7 @@ export default function PricingPlans() {
         "Access to gym facilities",
         "Cardio + strength equipment",
         "Group classes",
-        "One personal training session/month",
+        "One personal training session",
         "Priority booking",
       ],
       isPopular: true,
@@ -88,7 +88,7 @@ export default function PricingPlans() {
               <CardContent className="flex-grow">
                 <ul className="text-start mb-4 md:mb-2 divide-y">
                   {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-2 py-2">
+                    <li key={idx} className="flex items-center gap-2 py-3">
                       <IoCheckboxOutline /> {feature}
                     </li>
                   ))}
@@ -103,7 +103,7 @@ export default function PricingPlans() {
                       : "text-white"
                   }`}
                 >
-                  {plan.isPopular ? "Best Value - Join Now" : "Get Started"}
+                  {plan.isPopular ? "Best Value - Join Now" : "Sign Up"}
                 </Button>
               </div>
             </Card>

@@ -31,7 +31,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 left-0 z-50 bg-[rgba(255,255,255,0.7)] dark:bg-[rgba(0,0,0,0.7)] backdrop-blur-xl">
-      <div className="h-[85px] lg:h-[100px] px-10 container mx-auto flex gap-5 items-center justify-between flex-wrap md:flex-nowrap text-xl">
+      <div className="h-[85px] lg:h-[100px] px-4 md:px-10 container mx-auto flex gap-5 items-center justify-between flex-wrap md:flex-nowrap text-xl">
         <div className="flex items-center">
           <Link href="/" className="font-black text-primary">
             <Logo />
@@ -127,9 +127,9 @@ const Header = () => {
                 </Link>
 
                 <Link href="/membership-plan">
-                  <li className="text-white ml-7" onClick={closeNavbar}>
+                  <li className="text-white mx-7" onClick={closeNavbar}>
                     {" "}
-                    <Button className="text-lg py-7 px-7">
+                    <Button className="w-full text-lg py-7 px-7">
                       Become a Member
                     </Button>{" "}
                   </li>
