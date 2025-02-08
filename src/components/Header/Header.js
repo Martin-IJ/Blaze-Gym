@@ -1,17 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import { useContext, useEffect, useState } from "react";
-import { FaUserCircle } from "react-icons/fa";
-import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
-import Image from "next/image";
 import { Button } from "../ui/button";
 import Logo from "../Logo/Logo";
 
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/about-us", label: "About Us" },
+  { href: "/shop", label: "Shop" },
+  { href: "/contact-us", label: "Contact" },
+];
+
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (navbarOpen) {
@@ -33,7 +39,7 @@ const Header = () => {
     <header className="sticky top-0 left-0 z-50 bg-[rgba(255,255,255,0.7)] dark:bg-[rgba(0,0,0,0.7)] backdrop-blur-xl">
       <div className="h-[85px] lg:h-[100px] px-4 md:px-10 container mx-auto flex gap-5 items-center justify-between flex-wrap md:flex-nowrap text-xl">
         <div className="flex items-center">
-          <Link href="/" className="font-black text-primary">
+          <Link href="/" aria-label="Home">
             <Logo />
           </Link>
         </div>
@@ -42,35 +48,29 @@ const Header = () => {
           <GiHamburgerMenu />
         </button>
 
-        {/* Desktop View */}
+        {/* Desktop Menu */}
         <ul className="hidden md:flex items-center gap-10 mt-4 md:mt-0">
-          <li className="hover:border-b-4 border-primary hover:text-primary duration-300 transition-all">
-            <Link href="/"> Home </Link>
-          </li>
-
-          <li className="hover:border-b-4 border-primary hover:text-primary duration-300 transition-all">
-            <Link href="/about-us"> About Us </Link>
-          </li>
-
-          <li className="hover:border-b-4 border-primary hover:text-primary duration-300 transition-all">
-            <Link href="/shop"> Shop </Link>
-          </li>
-
-          <li className="hover:border-b-4 border-primary hover:text-primary duration-300 transition-all">
-            <Link href="/contact-us"> Contact </Link>
-          </li>
+          {navItems.map((item, index) => (
+            <li
+              key={index}
+              className={`hover:border-b-4 border-primary hover:text-primary duration-300 transition-all ${
+                pathname === item.href ? "border-b-4 text-primary" : ""
+              }`}
+            >
+              <Link href={item.href} aria-label={item.label}>
+                {item.label}
+              </Link>
+            </li>
+          ))}
 
           <li className="text-white">
             <Link href="/membership-plan">
-              {" "}
-              <Button className="text-lg py-7 px-7">
-                Become a Member
-              </Button>{" "}
+              <Button className="text-lg py-7 px-7">Become a Member</Button>
             </Link>
           </li>
         </ul>
 
-        {/* Mobile View */}
+        {/* Mobile Menu */}
         {navbarOpen && (
           <div className="absolute top-0 right-0 isolate flex justify-end md:hidden w-full h-screen">
             <div className="max-w-[350px] w-full h-full bg-white shadow-xl">
@@ -78,6 +78,7 @@ const Header = () => {
               <button
                 onClick={closeNavbar}
                 className="py-7 w-full px-7 text-2xl shadow-lg shadow-slate-100"
+                aria-label="Close Menu"
               >
                 <IoMdClose />
               </button>
@@ -89,49 +90,26 @@ const Header = () => {
               />
 
               {/* Mobile Ul */}
-              <ul className="">
-                <Link href="/">
+              <ul>
+                {navItems.map((item, index) => (
                   <li
+                    key={index}
                     onClick={closeNavbar}
-                    className="p-7 hover:bg-slate-100 hover:text-primary hover:border-l-4 border-primary duration-500 transition-all"
+                    className={`p-7 hover:bg-slate-100 hover:text-primary hover:border-l-4 border-primary duration-500 transition-all ${
+                      pathname === item.href ? "text-primary font-bold" : ""
+                    }`}
                   >
-                    Home
+                    <Link href={item.href} aria-label={item.label}>
+                      {item.label}
+                    </Link>
                   </li>
-                </Link>
-
-                <Link href="/about-us">
-                  <li
-                    onClick={closeNavbar}
-                    className="p-7 hover:bg-slate-100 hover:text-primary hover:border-l-4 border-primary duration-500 transition-all"
-                  >
-                    About Us
-                  </li>
-                </Link>
-
-                <Link href="/shop">
-                  <li
-                    onClick={closeNavbar}
-                    className="p-7 hover:bg-slate-100 hover:text-primary hover:border-l-4 border-primary duration-500 transition-all"
-                  >
-                    Shop
-                  </li>
-                </Link>
-
-                <Link href="/contact-us">
-                  <li
-                    onClick={closeNavbar}
-                    className="p-7 hover:bg-slate-100 hover:text-primary hover:border-l-4 border-primary duration-500 transition-all"
-                  >
-                    Contact
-                  </li>
-                </Link>
+                ))}
 
                 <Link href="/membership-plan">
                   <li className="text-white mx-7" onClick={closeNavbar}>
-                    {" "}
                     <Button className="w-full text-lg py-7 px-7">
                       Become a Member
-                    </Button>{" "}
+                    </Button>
                   </li>
                 </Link>
               </ul>
