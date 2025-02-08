@@ -2,6 +2,7 @@
 
 import { useParams } from "next/navigation";
 import Image from "next/image";
+import { FaPhoneAlt } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 
 const products = [
@@ -91,7 +92,10 @@ export default function ProductDetail() {
             N{product.price}
           </p>
 
-          <Button className="px-6 py-3 text-white">Call to Order</Button>
+          <Button className="px-6 py-3 text-white">
+            <FaPhoneAlt />
+            Call to Order
+          </Button>
         </div>
       </div>
     </div>
