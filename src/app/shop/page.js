@@ -1,8 +1,9 @@
+import ShopPage from '@/components/ShopPage/ShopPage'
 import React from 'react'
 
 const Shop = () => {
   return (
-    <div>Shop</div>
+    <div><ShopPage /></div>
   )
 }
 

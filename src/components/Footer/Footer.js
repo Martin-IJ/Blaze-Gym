@@ -14,10 +14,7 @@ const Footer = () => {
         <div className="md:flex flex-wrap gap-16 justify-between space-y-16 md:space-y-0">
           <div className="flex-1">
             <div className="flex py-6">
-              <Link
-                href="/"
-                className="font-black text-[30px] text-primary"
-              >
+              <Link href="/" className="font-black text-[30px] text-primary">
                 <Logo />
               </Link>
             </div>
@@ -61,35 +58,43 @@ const Footer = () => {
             <p className="">Membership Plans</p>
           </div>
 
-          <Table className="flex-1">
+          <div className="flex-1">
             <h4 className="font-semibold text-[30px] py-6">Working Hours</h4>
-            <TableBody>
-              <TableHead className="font-semibold">Monday - Friday</TableHead>
-              <TableRow>
-                <TableCell>Morning Session</TableCell>
-                <TableCell>07:00 AM - 12:00 PM</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>Evening Session</TableCell>
-                <TableCell>04:00 PM - 09:00 PM</TableCell>
-              </TableRow>
+            <Table>
+              <TableBody>
+                <TableRow>
+                  <TableHead className="font-semibold">
+                    Monday - Friday
+                  </TableHead>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Morning Session</TableCell>
+                  <TableCell>07:00 AM - 12:00 PM</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Evening Session</TableCell>
+                  <TableCell>04:00 PM - 09:00 PM</TableCell>
+                </TableRow>
 
-              <TableHead className="font-semibold">Saturdays</TableHead>
-              <TableRow>
-                <TableCell>Morning Session</TableCell>
-                <TableCell>09:00 AM - 12:00 PM</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>Evening Session</TableCell>
-                <TableCell>04:00 PM - 07:00 PM</TableCell>
-              </TableRow>
+                <TableRow>
+                  <TableHead className="font-semibold">Saturdays</TableHead>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Morning Session</TableCell>
+                  <TableCell>09:00 AM - 12:00 PM</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Evening Session</TableCell>
+                  <TableCell>04:00 PM - 07:00 PM</TableCell>
+                </TableRow>
 
-              <TableRow>
-                <TableCell>Closed</TableCell>
-                <TableCell>Sundays</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
+                <TableRow>
+                  <TableCell>Closed</TableCell>
+                  <TableCell>Sundays</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </div>
         </div>
       </div>
 
