@@ -3,6 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { IoCheckboxOutline } from "react-icons/io5";
+import BankDetails from "../BankDetails/BankDetails";
 
 export default function PricingPlans() {
   const plans = [
@@ -51,7 +52,9 @@ export default function PricingPlans() {
   return (
     <section className="py-16 px-6">
       <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-6">Pricing Plans</h2>
+        <h2 className="text-6xl font-bold mb-6">
+          Membership <br /> Packages
+        </h2>
         <p className="text-lg text-gray-500 mb-12">
           Choose a plan that fits your fitness journey. No hidden fees, just
           results.
@@ -110,6 +113,11 @@ export default function PricingPlans() {
           ))}
         </div>
       </div>
+
+      {/* Bank Details */}
+      <section>
+        <BankDetails />
+      </section>
     </section>
   );
 }

@@ -30,7 +30,7 @@ export function HeroSection() {
       onMouseEnter={() => plugin.current?.stop()}
       onMouseLeave={() => plugin.current?.reset()}
     >
-      <div className="absolute z-40 w-full h-full flex justify-center items-center text-white">
+      <div className="absolute z-30 w-full h-full flex justify-center items-center text-white">
         <div className="max-w-[600px] w-full px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold">
             Transform Your Body, Transform Your Life

@@ -1,7 +1,8 @@
+import GalleryCTA from "@/components/GalleryCTA/GalleryCTA";
 import { HeroSection } from "@/components/HeroSection/HeroSection";
 import Map from "@/components/Map/Map";
 import OurServices from "@/components/OurServices/OurServices";
-import PricingPlans from "@/components/PricingPlans/PricingPlans";
+import PricingPlanCTA from "@/components/PricingPlanCTA/PricingPlanCTA";
 import Why from "@/components/Why/Why";
 
 export default function Home() {
@@ -9,8 +10,9 @@ export default function Home() {
     <>
       <HeroSection />
       <Why />
+      <GalleryCTA />
       <OurServices />
-      <PricingPlans />
+      <PricingPlanCTA />
       <Map />
     </>
   );

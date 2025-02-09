@@ -3,6 +3,7 @@ import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Table, TableBody, TableCell, TableHead, TableRow } from "../ui/table";
 import Logo from "../Logo/Logo";
+import SocialMediaLinks from "../SocialMediaLinks/SocialMediaLinks";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -24,28 +25,8 @@ const Footer = () => {
               seasoned athlete, our gym offers high-intensity workouts. Join us
               and experience results like never before!
             </p>
-            <div className="flex gap-5 mt-5 text-xl">
-              <a
-                className="p-2 rounded-full bg-tertiary-dark text-white"
-                href="#"
-                target="_blank"
-              >
-                <FaFacebook />
-              </a>
-              <a
-                className="p-2 rounded-full bg-tertiary-dark text-white"
-                href="#"
-                target="_blank"
-              >
-                <FaXTwitter />
-              </a>
-              <a
-                className="p-2 rounded-full bg-tertiary-dark text-white"
-                href="#"
-                target="_blank"
-              >
-                <FaInstagram />
-              </a>
+            <div className="mt-5 text-xl">
+              <SocialMediaLinks />
             </div>
           </div>
 
