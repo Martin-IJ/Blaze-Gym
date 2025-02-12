@@ -52,7 +52,7 @@ export default function PricingPlans() {
   return (
     <section className="py-16 px-6">
       <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-6xl font-bold mb-6">
+        <h2 className="text-xl md:text-3xl lg:text-6xl font-bold mb-6">
           Membership <br /> Packages
         </h2>
         <p className="text-lg text-gray-500 mb-12">

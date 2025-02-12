@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { FaFacebook, FaInstagram } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
 import { Table, TableBody, TableCell, TableHead, TableRow } from "../ui/table";
 import Logo from "../Logo/Logo";
 import SocialMediaLinks from "../SocialMediaLinks/SocialMediaLinks";
@@ -32,11 +30,21 @@ const Footer = () => {
 
           <div className="flex-1">
             <h4 className="font-semibold text-[30px] py-6">Quick Links</h4>
-            <p className="pb-4">FAQ</p>
-            <p className="pb-4">Location</p>
-            <p className="pb-4">Contact Us</p>
-            <p className="pb-4">Get in Touch</p>
-            <p className="">Membership Plans</p>
+            <Link href="/shop">
+              <p className="pb-4 hover:text-primary">Shop</p>
+            </Link>
+            <Link href="/auth">
+              <p className="pb-4 hover:text-primary">Login</p>
+            </Link>
+            <Link href="/gallery">
+              <p className="pb-4 hover:text-primary">Gallery</p>
+            </Link>
+            <Link href="/contact-us">
+              <p className="pb-4 hover:text-primary">Contact Us</p>
+            </Link>
+            <Link href="/membership-plan">
+              <p className="hover:text-primary">Membership Plans</p>
+            </Link>
           </div>
 
           <div className="flex-1">
