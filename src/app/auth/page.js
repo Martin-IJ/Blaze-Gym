@@ -45,7 +45,7 @@ const Auth = () => {
 
   return (
     <div className="h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
-      <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg w-full max-w-md">
+      <div className="bg-white dark:bg-gray-800 mx-2 p-8 rounded-xl shadow-lg w-full max-w-md">
         <h1 className="text-2xl font-bold text-center mb-6 text-primary">Login</h1>
 
         <form onSubmit={handleLogin} className="space-y-4">
