@@ -65,7 +65,7 @@ const Gallery = () => {
                   fill
                   alt={image.description || "Gallery image"}
                   src={image.image}
-                  className="scale-animation object-contain md:object-cover"
+                  className="scale-animation object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div
