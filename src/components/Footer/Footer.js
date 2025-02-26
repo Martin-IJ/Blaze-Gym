@@ -62,7 +62,7 @@ const Footer = () => {
               At Blaze Gym Fitness, we help you achieve your fitness goals with
               up-to-date equipment. Whether you&apos;re just starting out or a
               seasoned athlete, our gym offers high-intensity workouts. Join us
-              and experience results like never before!
+              and experience results like never before! 
             </p>
             <div className="mt-5 text-xl">
               {!loading && (
