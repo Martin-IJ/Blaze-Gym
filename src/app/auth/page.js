@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const Auth = () => {
   const [login, setLogin] = useState("");
@@ -57,26 +58,32 @@ const Auth = () => {
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium mb-1">
+            <label className="block text-sm font-medium mb-1" htmlFor="login">
               Username or Email
             </label>
             <input
               type="text"
+              id="login"
               value={login}
               onChange={(e) => setLogin(e.target.value)}
               required
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              aria-label="Username or Email"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-1">Password</label>
+            <label className="block text-sm font-medium mb-1" htmlFor="password">
+              Password
+            </label>
             <input
               type="password"
+              id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              aria-label="Password"
             />
           </div>
 
@@ -89,6 +96,12 @@ const Auth = () => {
           >
             {loading ? "Logging in..." : "Login"}
           </Button>
+
+          <Link href="/">
+              <p className="text-primary font-semibold text-center text-sm mt-4">
+                Back to Home
+              </p>
+          </Link>
         </form>
       </div>
     </div>

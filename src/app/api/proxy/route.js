@@ -4,6 +4,13 @@ export async function POST(req) {
     const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/auth/change_password/`;
     const authToken = req.headers.get("Authorization");
 
+    if (!authToken) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
     const response = await fetch(apiUrl, {
       method: "POST",
       headers: {
@@ -32,6 +39,13 @@ export async function GET(req) {
   try {
     const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/auth/me/`;
     const authToken = req.headers.get("Authorization");
+
+    if (!authToken) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
 
     const response = await fetch(apiUrl, {
       method: "GET",
@@ -62,6 +76,13 @@ export async function PATCH(req) {
     const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/auth/update_user/`;
     const authToken = req.headers.get("Authorization");
 
+    if (!authToken) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
     const response = await fetch(apiUrl, {
       method: "PATCH",
       headers: {
@@ -90,6 +111,13 @@ export async function PUT(req) {
     const body = await req.json();
     const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/contact/`;
     const authToken = req.headers.get("Authorization");
+
+    if (!authToken) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
 
     const response = await fetch(apiUrl, {
       method: "PUT",

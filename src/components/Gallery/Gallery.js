@@ -54,6 +54,10 @@ const Gallery = () => {
               <Skeleton className="relative w-full h-52" />
             </div>
           ))
+        ) : images.length === 0 ? (
+          <div className="col-span-full text-center text-gray-500">
+            No images available.
+          </div>
         ) : (
           images.map((image) => (
             <div

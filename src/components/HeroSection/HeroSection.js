@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
-
+import { motion } from "framer-motion";
 import {
   Carousel,
   CarouselContent,
@@ -31,16 +31,39 @@ export function HeroSection() {
       onMouseLeave={() => plugin.current?.reset()}
     >
       <div className="absolute z-30 w-full h-full flex justify-center items-center text-white">
-        <div className="max-w-[600px] w-full px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold">
+        <motion.div
+          className="max-w-[600px] w-full px-4 text-center"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.h1
+            className="text-4xl md:text-5xl font-bold"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1, duration: 1 }}
+          >
             Transform Your Body, Transform Your Life
-          </h1>
-          <p className="text-sm md:text-base my-5">
+          </motion.h1>
+          <motion.p
+            className="text-sm md:text-base my-5"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 1 }}
+          >
             Achieve your fitness goals with expert coaching, top-tier equipment,
             and a supportive community. Start your journey today!
-          </p>
-          <Link href='/membership-plan'><Button className="py-5 px-10">Join Now</Button></Link>
-        </div>
+          </motion.p>
+          <Link href="/membership-plan">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8, duration: 1 }}
+            >
+              <Button className="py-5 px-10">Join Now</Button>
+            </motion.div>
+          </Link>
+        </motion.div>
       </div>
       <CarouselContent>
         {images.map((src, index) => (

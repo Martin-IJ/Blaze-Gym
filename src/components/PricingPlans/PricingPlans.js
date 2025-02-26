@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { IoCheckboxOutline } from "react-icons/io5";
@@ -11,6 +11,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 export default function PricingPlans() {
   const [plans, setPlans] = useState([]);
   const [loading, setLoading] = useState(true);
+  const bankDetailsRef = useRef(null);
 
   useEffect(() => {
     const fetchMembershipPlans = async () => {
@@ -46,6 +47,12 @@ export default function PricingPlans() {
 
   const formatPrice = (price) => {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
+  const handleScrollToBankDetails = () => {
+    if (bankDetailsRef.current) {
+      bankDetailsRef.current.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -89,7 +96,7 @@ export default function PricingPlans() {
                 <Card
                   key={index}
                   className={`${
-                    plan.isPopular
+                    index === 1
                       ? "border-2 border-tertiary-dark"
                       : "border border-gray-500"
                   } max-w-[350px] w-full min-h-[500px] h-full mx-auto text-sm shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col`}
@@ -97,7 +104,7 @@ export default function PricingPlans() {
                   <CardHeader className="text-center space-y-3">
                     <CardTitle
                       className={`${
-                        plan.isPopular ? "text-tertiary-dark" : "text-primary"
+                        index === 1 ? "text-tertiary-dark" : "text-primary"
                       } text-2xl font-semibold`}
                     >
                       {plan.name}
@@ -105,7 +112,7 @@ export default function PricingPlans() {
                     <p className="">{plan.description}</p>
                     <p
                       className={`${
-                        plan.isPopular ? "text-tertiary-dark" : "text-primary"
+                        index === 1 ? "text-tertiary-dark" : "text-primary"
                       } text-4xl font-bold`}
                     >
                       ₦{formatPrice(plan.price)}
@@ -125,12 +132,13 @@ export default function PricingPlans() {
                   <div className="mt-auto p-6">
                     <Button
                       className={`w-full py-6 shadow-lg ${
-                        plan.isPopular
+                        index === 1
                           ? "bg-tertiary-dark hover:bg-tertiary-dark/90 text-white"
                           : "text-white"
                       }`}
+                      onClick={handleScrollToBankDetails}
                     >
-                      {plan.isPopular ? "Best Value - Join Now" : "Sign Up"}
+                      {index === 1 ? "Best Value - Join Now" : "Sign Up"}
                     </Button>
                   </div>
                 </Card>
@@ -139,7 +147,7 @@ export default function PricingPlans() {
       </div>
 
       {/* Bank Details */}
-      <section>
+      <section ref={bankDetailsRef}>
         <BankDetails />
       </section>
     </section>

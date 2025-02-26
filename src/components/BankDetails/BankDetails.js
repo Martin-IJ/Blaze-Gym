@@ -38,6 +38,17 @@ const BankDetails = () => {
     fetchContactDetails();
   }, []);
 
+  const formatPhoneNumber = (phoneNumber) => {
+    if (!phoneNumber) return "";
+    // Remove any non-numeric characters
+    phoneNumber = phoneNumber.replace(/[^0-9]/g, "");
+    // Replace leading zero with country code 234
+    if (phoneNumber.startsWith("0")) {
+      phoneNumber = "234" + phoneNumber.slice(1);
+    }
+    return phoneNumber;
+  };
+
   return (
     <div className="py-16 px-6">
       <div className="max-w-5xl mx-auto text-center">
@@ -88,7 +99,9 @@ const BankDetails = () => {
             </div>
             <div className="">
               <a
-                href={`https://wa.me/${contactData.whatsapp}`}
+                href={`https://wa.me/${formatPhoneNumber(
+                  contactData.whatsapp
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center text-start text-primary"

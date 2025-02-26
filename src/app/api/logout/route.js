@@ -21,12 +21,10 @@ export async function POST(req) {
         "Content-Type": "application/json",
         Authorization: authToken,
       },
-      body: JSON.stringify({}),
     });
 
-    const data = await response.json();
-
     if (!response.ok) {
+      const data = await response.json();
       return new Response(
         JSON.stringify({ message: data.message || "Logout failed" }),
         {
@@ -44,6 +42,7 @@ export async function POST(req) {
       }
     );
   } catch (error) {
+    console.error("Logout error:", error);
     return new Response(JSON.stringify({ message: "Server error" }), {
       status: 500,
       headers: { "Content-Type": "application/json" },

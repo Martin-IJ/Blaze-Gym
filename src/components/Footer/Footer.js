@@ -4,10 +4,12 @@ import Link from "next/link";
 import { Table, TableBody, TableCell, TableHead, TableRow } from "../ui/table";
 import Logo from "../Logo/Logo";
 import SocialMediaLinks from "../SocialMediaLinks/SocialMediaLinks";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
+import { toast } from "react-hot-toast";
 
 const Footer = () => {
   const [contactData, setContactData] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchContactDetails = async () => {
@@ -30,18 +32,22 @@ const Footer = () => {
           throw new Error(data.message || "Failed to fetch contact details.");
         }
       } catch (error) {
+        console.error("Error fetching contact details:", error);
         toast.error(
           error.message || "An error occurred while fetching contact details."
         );
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchContactDetails();
   }, []);
 
-  const currentYear = new Date().getFullYear();
+  const currentYear = useMemo(() => new Date().getFullYear(), []);
+
   return (
-    <footer className="">
+    <footer className="bg-white/50">
       <div className="w-full h-[2px] mb-4 bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
 
       <div className="container mx-auto px-4">
@@ -59,20 +65,22 @@ const Footer = () => {
               and experience results like never before!
             </p>
             <div className="mt-5 text-xl">
-              <SocialMediaLinks
-                instagram={contactData.instagram}
-                twitter={contactData.twitter}
-                facebook={contactData.facebook}
-                linkedin={contactData.linkedin}
-                tiktok={contactData.tiktok}
-                youtube={contactData.youtube}
-                telegram={contactData.telegram}
-                snapchat={contactData.snapchat}
-                discord={contactData.discord}
-                reddit={contactData.reddit}
-                pinterest={contactData.pinterest}
-                github={contactData.github}
-              />
+              {!loading && (
+                <SocialMediaLinks
+                  instagram={contactData.instagram}
+                  twitter={contactData.twitter}
+                  facebook={contactData.facebook}
+                  linkedin={contactData.linkedin}
+                  tiktok={contactData.tiktok}
+                  youtube={contactData.youtube}
+                  telegram={contactData.telegram}
+                  snapchat={contactData.snapchat}
+                  discord={contactData.discord}
+                  reddit={contactData.reddit}
+                  pinterest={contactData.pinterest}
+                  github={contactData.github}
+                />
+              )}
             </div>
           </div>
 
@@ -151,6 +159,7 @@ const Footer = () => {
             className="underline"
             href="https://martinsohezportfolio.vercel.app/"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Martins
           </a>

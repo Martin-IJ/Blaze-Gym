@@ -45,7 +45,12 @@ const Header = () => {
           </Link>
         </div>
 
-        <button onClick={openNavbar} className="lg:hidden p-3">
+        <button
+          onClick={openNavbar}
+          className="lg:hidden p-3"
+          aria-expanded={navbarOpen}
+          aria-controls="mobile-menu"
+        >
           <GiHamburgerMenu />
         </button>
 
@@ -65,7 +70,7 @@ const Header = () => {
           ))}
 
           <li className="text-white">
-            <Link href="/membership-plan">
+            <Link href="/membership-plan" passHref>
               <Button className="py-7 px-7">Become a Member</Button>
             </Link>
           </li>
@@ -73,7 +78,10 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {navbarOpen && (
-          <div className="absolute lg:hidden w-full h-screen top-0 right-0 isolate flex justify-end">
+          <div
+            id="mobile-menu"
+            className="absolute lg:hidden w-full h-screen top-0 right-0 isolate flex justify-end"
+          >
             <div className="max-w-[350px] w-full h-full bg-white shadow-xl">
               {/* Mobile Close Btn */}
               <button
@@ -106,13 +114,13 @@ const Header = () => {
                   </li>
                 ))}
 
-                <Link href="/membership-plan">
-                  <li className="text-white mx-7" onClick={closeNavbar}>
+                <li className="text-white mx-7" onClick={closeNavbar}>
+                  <Link href="/membership-plan" passHref>
                     <Button className="w-full text-lg py-7 px-7">
                       Become a Member
                     </Button>
-                  </li>
-                </Link>
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

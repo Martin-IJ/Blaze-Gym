@@ -49,7 +49,10 @@ export default function ShopPage() {
       {loading ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {Array.from({ length: 8 }).map((_, index) => (
-            <div key={index} className="border rounded-2xl shadow-md overflow-hidden">
+            <div
+              key={index}
+              className="border rounded-2xl shadow-md overflow-hidden"
+            >
               <div className="relative w-full h-52 overflow-hidden">
                 <div className="w-full h-full bg-gray-200 animate-pulse"></div>
               </div>
@@ -60,6 +63,8 @@ export default function ShopPage() {
             </div>
           ))}
         </div>
+      ) : products.length === 0 ? (
+        <div className="text-center text-gray-500">No products available.</div>
       ) : (
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {products.map((product) => (
@@ -83,11 +88,7 @@ export default function ShopPage() {
                   <h2 className="font-semibold truncate overflow-hidden whitespace-nowrap">
                     {product.name}
                   </h2>
-                  <Button className="px-2 text-white">
-                    <Link href={`/shop/product/${product.id}`} key={product.id}>
-                      Shop Product
-                    </Link>
-                  </Button>
+                  <Button className="px-2 text-white">Shop Product</Button>
                 </div>
               </div>
             </Link>
