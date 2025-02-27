@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
         <meta name="description" content="Join Blaze Gym Fitness and ignite your fitness journey with expert coaching and top-tier equipment." />
         <meta property="og:title" content="Blaze Gym Fitness - Ignite Your Fitness Journey" />
         <meta property="og:description" content="Join Blaze Gym Fitness and ignite your fitness journey with expert coaching and top-tier equipment." />
-        <meta property="og:image" content="https://www.blazegymfitness.com/images/og-image.png" />
+        <meta property="og:image" content="/images/og-image.png" />
         <meta property="og:url" content="https://www.blazegymfitness.com" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Blaze Gym Fitness - Ignite Your Fitness Journey" />
