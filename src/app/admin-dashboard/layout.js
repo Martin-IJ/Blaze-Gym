@@ -2,7 +2,8 @@ import Toast from "@/components/Toast/Toast";
 
 export const metadata = {
   title: "Blaze Gym Fitness - Admin",
-  description: "Blaze Gym Fitness: Ignite Your Fitness Journey",
+  description:
+    "Join Blaze Gym Fitness and ignite your fitness journey with expert coaching and top-tier equipment.",
 };
 
 export default function RootLayout({ children }) {

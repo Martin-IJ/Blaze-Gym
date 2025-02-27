@@ -56,7 +56,7 @@ export default function OurServices() {
           ref={ref}
         >
           {services.map((service, index) => (
-            <motion.div
+            <motion.article
               key={index}
               className="bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
               initial="hidden"
@@ -69,7 +69,7 @@ export default function OurServices() {
             >
               <div className="relative w-full h-48 mb-4 rounded-md overflow-hidden">
                 <Image
-                  alt={service.title}
+                  alt={`Service: ${service.title}`}
                   className="object-cover img scale-animation object-center transition-all duration-500"
                   fill
                   src={service.image}
@@ -78,7 +78,7 @@ export default function OurServices() {
               <div className="flex justify-center mb-4">{service.icon}</div>
               <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
               <p className="text-gray-400">{service.description}</p>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>

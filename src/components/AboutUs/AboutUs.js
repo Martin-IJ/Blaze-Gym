@@ -59,12 +59,12 @@ export default function AboutUs() {
   }, [controls, inView]);
 
   return (
-    <main className="">
+    <main>
       <section className="relative h-[60vh] text-white flex items-center justify-center px-6">
         <div className="absolute inset-0">
           <Image
             src="/images/about-hero.jpg"
-            alt="Gym"
+            alt="Gym equipment and facilities"
             fill
             className="object-cover"
           />

@@ -55,26 +55,28 @@ const Header = () => {
         </button>
 
         {/* Desktop Menu */}
-        <ul className="hidden text-lg lg:flex items-center gap-10 mt-4 md:mt-0">
-          {navItems.map((item, index) => (
-            <li
-              key={index}
-              className={`border-primary hover:text-primary duration-300 transition-all ${
-                pathname === item.href ? "border-b-4 text-primary" : ""
-              }`}
-            >
-              <Link href={item.href} aria-label={item.label}>
-                {item.label}
+        <nav className="hidden lg:block">
+          <ul className="text-lg lg:flex items-center gap-10 mt-4 md:mt-0">
+            {navItems.map((item, index) => (
+              <li
+                key={index}
+                className={`border-primary hover:text-primary duration-300 transition-all ${
+                  pathname === item.href ? "border-b-4 text-primary" : ""
+                }`}
+              >
+                <Link href={item.href} aria-label={item.label}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+
+            <li className="text-white">
+              <Link href="/membership-plan" passHref>
+                <Button className="py-7 px-7">Become a Member</Button>
               </Link>
             </li>
-          ))}
-
-          <li className="text-white">
-            <Link href="/membership-plan" passHref>
-              <Button className="py-7 px-7">Become a Member</Button>
-            </Link>
-          </li>
-        </ul>
+          </ul>
+        </nav>
 
         {/* Mobile Menu */}
         {navbarOpen && (

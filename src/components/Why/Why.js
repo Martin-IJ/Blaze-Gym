@@ -41,10 +41,10 @@ const Why = () => {
   ];
 
   return (
-    <div className="relative overflow-hidden">
+    <section className="relative overflow-hidden">
       <div className="absolute w-full h-full -right-3/4 top-0 -z-50 flex justify-start items-end overflow-hidden">
         <Image
-          alt="weight"
+          alt="Weight lifting equipment"
           height={1000}
           width={1000}
           src="/images/weight.png"
@@ -55,14 +55,13 @@ const Why = () => {
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">Why Choose Us?</h2>
           <p className="text-lg text-gray-500 mb-10">
-            We provide the best training experience to help you reach your
-            fitness goals.
+            We provide the best training experience to help you reach your fitness goals.
           </p>
 
           {/* Feature Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, index) => (
-              <div
+              <article
                 key={index}
                 className="bg-white p-6 rounded-xl shadow-lg text-center transition-all duration-300"
               >
@@ -73,12 +72,12 @@ const Why = () => {
                   {feature.title}
                 </h3>
                 <p className="text-gray-400 mt-2">{feature.description}</p>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
-    </div>
+    </section>
   );
 };
 
