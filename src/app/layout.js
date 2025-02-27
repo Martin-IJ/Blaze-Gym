@@ -23,31 +23,47 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <title>Blaze Gym Fitness - Ignite Your Fitness Journey</title>
-        <meta name="description" content="Join Blaze Gym Fitness and ignite your fitness journey with expert coaching and top-tier equipment." />
-        <meta property="og:title" content="Blaze Gym Fitness - Ignite Your Fitness Journey" />
-        <meta property="og:description" content="Join Blaze Gym Fitness and ignite your fitness journey with expert coaching and top-tier equipment." />
-        <meta property="og:image" content="/images/og-image.png" />
+        <meta
+          name="description"
+          content="Join Blaze Gym Fitness and ignite your fitness journey with expert coaching and top-tier equipment."
+        />
+        <meta
+          property="og:title"
+          content="Blaze Gym Fitness - Ignite Your Fitness Journey"
+        />
+        <meta
+          property="og:description"
+          content="Join Blaze Gym Fitness and ignite your fitness journey with expert coaching and top-tier equipment."
+        />
+        <meta property="og:image" content="/images/og-image.jpg" />
         <meta property="og:url" content="https://www.blazegymfitness.com" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Blaze Gym Fitness - Ignite Your Fitness Journey" />
-        <meta name="twitter:description" content="Join Blaze Gym Fitness and ignite your fitness journey with expert coaching and top-tier equipment." />
-        <meta name="twitter:image" content="https://www.blazegymfitness.com/images/twitter-image.png" />
+        <meta
+          name="twitter:title"
+          content="Blaze Gym Fitness - Ignite Your Fitness Journey"
+        />
+        <meta
+          name="twitter:description"
+          content="Join Blaze Gym Fitness and ignite your fitness journey with expert coaching and top-tier equipment."
+        />
+        <meta name="twitter:image" content="/images/twitter-image.png" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Gym",
-            "name": "Blaze Gym Fitness",
-            "description": "Join Blaze Gym Fitness and ignite your fitness journey with expert coaching and top-tier equipment.",
-            "url": "https://www.blazegymfitness.com",
-            "address": {
+            name: "Blaze Gym Fitness",
+            description:
+              "Join Blaze Gym Fitness and ignite your fitness journey with expert coaching and top-tier equipment.",
+            url: "https://www.blazegymfitness.com",
+            address: {
               "@type": "PostalAddress",
-              "streetAddress": "3 Alhaji hammed abokede street",
-              "addressLocality": "Ojo",
-              "addressRegion": "Lagos",
-              "postalCode": "100242",
-              "addressCountry": "NG"
+              streetAddress: "3 Alhaji hammed abokede street",
+              addressLocality: "Ojo",
+              addressRegion: "Lagos",
+              postalCode: "100242",
+              addressCountry: "NG",
             },
-            "telephone": "+234123456789"
+            telephone: "+234123456789",
           })}
         </script>
       </head>
