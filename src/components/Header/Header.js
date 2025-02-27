@@ -103,17 +103,19 @@ const Header = () => {
               {/* Mobile Ul */}
               <ul>
                 {navItems.map((item, index) => (
-                  <li
-                    key={index}
-                    onClick={closeNavbar}
-                    className={`p-7 hover:bg-slate-100 hover:text-primary hover:border-l-4 border-primary duration-500 transition-all ${
-                      pathname === item.href ? "text-primary font-bold" : ""
-                    }`}
-                  >
-                    <Link href={item.href} aria-label={item.label}>
+                  <Link href={item.href} aria-label={item.label}>
+                    <li
+                      key={index}
+                      onClick={closeNavbar}
+                      className={`p-7 hover:bg-slate-100 hover:text-primary hover:border-l-4 border-primary duration-500 transition-all ${
+                        pathname === item.href
+                          ? "text-primary font-bold border-l-4 border-primary/70 bg-slate-50"
+                          : ""
+                      }`}
+                    >
                       {item.label}
-                    </Link>
-                  </li>
+                    </li>
+                  </Link>
                 ))}
 
                 <li className="text-white mx-7" onClick={closeNavbar}>
