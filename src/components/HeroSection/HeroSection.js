@@ -20,7 +20,7 @@ export function HeroSection() {
     "/images/DSC2.JPG",
     "/images/DSC3.JPG",
     "/images/DSC4.JPG",
-    "/images/gym5.jpg",
+    "/images/DSC5.JPG",
   ];
 
   return (

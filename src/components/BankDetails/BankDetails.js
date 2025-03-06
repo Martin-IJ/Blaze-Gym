@@ -58,25 +58,32 @@ const BankDetails = () => {
         </p>
 
         <div className="flex flex-col items-center my-4">
-          <div className="relative h-60 w-60">
+          <div className="relative h-60 w-60 my-10">
             <Image
               layout="fill"
               alt="Bank Logo"
               objectFit="contain"
-              src="/images/UBA-logo.png"
+              src="/images/zenithLogo.png"
             />
           </div>
 
           <div>
             <p className="text-2xl uppercase font-bold">Bank Name</p>
-            <p className="text-2xl uppercase">UBA Bank</p>
+            <p className="text-2xl uppercase">Zenith Bank</p>
           </div>
 
           <div className="w-full h-[2px] my-4 bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
 
           <div>
             <p className="text-2xl uppercase font-bold">Account Number</p>
-            <p className="text-2xl uppercase">1234567890</p>
+            <p className="text-2xl uppercase">1017311598</p>
+          </div>
+
+          <div className="w-full h-[2px] my-4 bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+
+          <div>
+            <p className="text-2xl uppercase font-bold">Account Name</p>
+            <p className="text-2xl uppercase">Blaze Gym Fitness</p>
           </div>
         </div>
 
@@ -110,7 +117,7 @@ const BankDetails = () => {
                 {contactData.whatsapp}
               </a>
             </div>
-            <div className="">
+            {/* <div className="">
               <a
                 href={`mailto:${contactData.email}`}
                 className="flex items-center text-primary"
@@ -118,7 +125,7 @@ const BankDetails = () => {
                 <FaEnvelope className="text-2xl mr-3" />
                 {contactData.email}
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

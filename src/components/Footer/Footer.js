@@ -116,34 +116,34 @@ const Footer = () => {
               <TableBody>
                 <TableRow>
                   <TableHead className="font-semibold">
-                    Monday - Friday
+                    Monday - Saturday
                   </TableHead>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Morning Session</TableCell>
+                  <TableCell>06:45 AM - 12:00 PM</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Evening Session</TableCell>
+                  <TableCell>05:00 PM - 09:00 PM</TableCell>
+                </TableRow>
+
+                <TableRow>
+                  <TableHead className="font-semibold">Sunday</TableHead>
                 </TableRow>
                 <TableRow>
                   <TableCell>Morning Session</TableCell>
                   <TableCell>07:00 AM - 12:00 PM</TableCell>
                 </TableRow>
-                <TableRow>
-                  <TableCell>Evening Session</TableCell>
-                  <TableCell>04:00 PM - 09:00 PM</TableCell>
-                </TableRow>
-
-                <TableRow>
-                  <TableHead className="font-semibold">Saturdays</TableHead>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Morning Session</TableCell>
-                  <TableCell>09:00 AM - 12:00 PM</TableCell>
-                </TableRow>
-                <TableRow>
+                {/* <TableRow>
                   <TableCell>Evening Session</TableCell>
                   <TableCell>04:00 PM - 07:00 PM</TableCell>
-                </TableRow>
+                </TableRow> */}
 
-                <TableRow>
+                {/* <TableRow>
                   <TableCell>Closed</TableCell>
                   <TableCell>Sundays</TableCell>
-                </TableRow>
+                </TableRow> */}
               </TableBody>
             </Table>
           </div>

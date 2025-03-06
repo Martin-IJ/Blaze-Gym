@@ -6,7 +6,7 @@ const PricingPlanCTA = () => {
   return (
     <div
       className="relative isolate py-16 px-6 bg-cover bg-center"
-      style={{ backgroundImage: `url(/images/memberImg.jpg)` }}
+      style={{ backgroundImage: `url(/images/memberImg.JPG)` }}
     >
       <div className="max-w-5xl mx-auto text-center text-white">
         <h3 className="text-4xl font-bold mb-6">

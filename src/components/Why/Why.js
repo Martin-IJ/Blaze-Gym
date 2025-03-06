@@ -26,7 +26,7 @@ const Why = () => {
     {
       icon: <MdOutlineAccessAlarm />,
       title: "Flexible Hours",
-      description: "24/7 access to fit your busy schedule.",
+      description: "Access to fit your busy schedule.",
     },
     {
       icon: <FaHandshakeSimple />,

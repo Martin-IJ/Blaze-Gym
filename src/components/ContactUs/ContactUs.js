@@ -67,7 +67,7 @@ export default function ContactUs() {
         <div className="absolute inset-0 bg-black/80"></div>
       </section>
 
-      <section className="py-16 px-6 max-w-5xl mx-auto text-center grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="py-16 px-6 max-w-5xl mx-auto text-center grid grid-cols-1 md:grid-cols-2 gap-8">
         <Card className="text-white shadow-md flex flex-col items-center justify-center">
           <CardHeader className="flex flex-col items-center">
             <FaMapMarkerAlt className="text-3xl text-tertiary-dark" />
@@ -84,14 +84,14 @@ export default function ContactUs() {
             <p>{contactData.phone_number}</p>
           </CardContent>
         </Card>
-        <Card className="text-white shadow-md flex flex-col items-center justify-center">
+        {/* <Card className="text-white shadow-md flex flex-col items-center justify-center">
           <CardHeader className="flex flex-col items-center">
             <FaEnvelope className="text-3xl text-tertiary-dark" />
           </CardHeader>
           <CardContent className="text-gray-400">
             <p>{contactData.email}</p>
           </CardContent>
-        </Card>
+        </Card> */}
       </section>
 
       <section className="pb-16 px-6 max-w-5xl mx-auto text-center">
