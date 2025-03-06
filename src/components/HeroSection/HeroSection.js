@@ -16,10 +16,10 @@ export function HeroSection() {
   const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
 
   const images = [
-    "/images/DSC1.jpg",
-    "/images/DSC2.jpg",
-    "/images/DSC3.jpg",
-    "/images/DSC4.jpg",
+    "/images/DSC1.JPG",
+    "/images/DSC2.JPG",
+    "/images/DSC3.JPG",
+    "/images/DSC4.JPG",
     "/images/gym5.jpg",
   ];
 
