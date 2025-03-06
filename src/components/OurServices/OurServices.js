@@ -11,21 +11,21 @@ export default function OurServices() {
     {
       icon: <FaDumbbell className="text-4xl text-blue-500" />,
       title: "Strength Training",
-      image: "/images/simg1.jpg",
+      image: "/images/DSC1.jpg",
       description:
         "Build muscle, tone your body, and increase strength with our professional guidance.",
     },
     {
       icon: <FaRunning className="text-4xl text-green-500" />,
       title: "Cardio Workouts",
-      image: "/images/simg2.jpg",
+      image: "/images/DSC2.jpg",
       description:
         "Boost your stamina with intense, heart-pumping cardio sessions.",
     },
     {
       icon: <FaUserAlt className="text-4xl text-yellow-500" />,
       title: "Personal Training",
-      image: "/images/simg3.jpg",
+      image: "/images/DSC3.jpg",
       description:
         "Work one-on-one with our certified trainers for personalized fitness plans.",
     },

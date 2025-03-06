@@ -103,9 +103,8 @@ const Header = () => {
               {/* Mobile Ul */}
               <ul>
                 {navItems.map((item, index) => (
-                  <Link href={item.href} aria-label={item.label}>
+                  <Link key={index} href={item.href} aria-label={item.label}>
                     <li
-                      key={index}
                       onClick={closeNavbar}
                       className={`p-7 hover:bg-slate-100 hover:text-primary hover:border-l-4 border-primary duration-500 transition-all ${
                         pathname === item.href

@@ -19,13 +19,19 @@ const GalleryPanel = () => {
           return;
         }
 
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
+
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/gallery/`, {
           method: "GET",
           headers: {
             "Authorization": `Bearer ${authToken}`,
             "Content-Type": "application/json",
           },
+          signal: controller.signal,
         });
+
+        clearTimeout(timeoutId);
 
         const data = await response.json();
 
@@ -35,7 +41,11 @@ const GalleryPanel = () => {
           throw new Error(data.message || "Failed to fetch gallery images.");
         }
       } catch (error) {
-        toast.error(error.message || "An error occurred while fetching gallery images.");
+        if (error.name === 'AbortError') {
+          toast.error("Request timed out. Please try again.");
+        } else {
+          toast.error(error.message || "An error occurred while fetching gallery images.");
+        }
       }
     };
 

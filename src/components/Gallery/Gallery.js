@@ -12,6 +12,9 @@ const Gallery = () => {
   useEffect(() => {
     const fetchGalleryImages = async () => {
       try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
+
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_API_BASE_URL}/gallery/`,
           {
@@ -19,8 +22,11 @@ const Gallery = () => {
             headers: {
               "Content-Type": "application/json",
             },
+            signal: controller.signal,
           }
         );
+
+        clearTimeout(timeoutId);
 
         const data = await response.json();
 
@@ -30,9 +36,11 @@ const Gallery = () => {
           throw new Error(data.message || "Failed to fetch gallery images.");
         }
       } catch (error) {
-        toast.error(
-          error.message || "An error occurred while fetching gallery images."
-        );
+        if (error.name === 'AbortError') {
+          toast.error("Request timed out. Please try again.");
+        } else {
+          toast.error(error.message || "An error occurred while fetching gallery images.");
+        }
       } finally {
         setLoading(false);
       }
@@ -40,6 +48,10 @@ const Gallery = () => {
 
     fetchGalleryImages();
   }, []);
+
+  const handleImageError = (e) => {
+    e.target.src = "/images/fallback-image.png";
+  };
 
   return (
     <div className="container min-h-[500px] mx-auto px-4 py-10">
@@ -72,6 +84,7 @@ const Gallery = () => {
                   className="scale-animation object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   loading="lazy"
+                  onError={handleImageError}
                 />
                 <div
                   style={{ backgroundImage: `url(${image.image})` }}

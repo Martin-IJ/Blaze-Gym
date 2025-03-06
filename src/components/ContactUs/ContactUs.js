@@ -114,7 +114,7 @@ export default function ContactUs() {
         </div>
       </section>
 
-      <section className="bg-slate-200 py-16 px-6">
+      {/* <section className="bg-slate-200 py-16 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-primary mb-6">
             Send Us a Message
@@ -147,7 +147,7 @@ export default function ContactUs() {
             </Button>
           </form>
         </div>
-      </section>
+      </section> */}
 
       <Map />
     </main>
