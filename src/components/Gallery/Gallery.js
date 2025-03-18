@@ -4,12 +4,18 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { toast } from "react-hot-toast";
 import { Skeleton } from "../ui/skeleton";
+import {
+  FaArrowAltCircleLeft,
+  FaArrowAltCircleRight,
+  FaTimes,
+} from "react-icons/fa";
 
 const Gallery = () => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const fetchGalleryImages = async () => {
@@ -39,9 +45,11 @@ const Gallery = () => {
         }
       } catch (error) {
         if (error.name === "AbortError") {
-          // toast.error("Request timed out. Please try again.");
+          toast.error("Request timed out. Please try again.");
         } else {
-          // toast.error(error.message || "An error occurred while fetching gallery images.");
+          toast.error(
+            error.message || "An error occurred while fetching gallery images."
+          );
         }
       } finally {
         setLoading(false);
@@ -55,14 +63,31 @@ const Gallery = () => {
     e.target.src = "/images/fallback-image.png";
   };
 
-  const handleImageClick = (image) => {
+  const handleImageClick = (image, index) => {
     setSelectedImage(image);
+    setCurrentIndex(index);
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedImage(null);
+  };
+
+  const showPreviousImage = () => {
+    if (currentIndex > 0) {
+      const newIndex = currentIndex - 1;
+      setSelectedImage(images[newIndex]);
+      setCurrentIndex(newIndex);
+    }
+  };
+
+  const showNextImage = () => {
+    if (currentIndex < images.length - 1) {
+      const newIndex = currentIndex + 1;
+      setSelectedImage(images[newIndex]);
+      setCurrentIndex(newIndex);
+    }
   };
 
   return (
@@ -86,11 +111,11 @@ const Gallery = () => {
             No images available.
           </div>
         ) : (
-          images.map((image) => (
+          images.map((image, index) => (
             <div
               key={image.id}
               className="border rounded-2xl shadow-md overflow-hidden"
-              onClick={() => handleImageClick(image)}
+              onClick={() => handleImageClick(image, index)}
             >
               <div className="relative w-full h-52 overflow-hidden group">
                 <Image
@@ -125,10 +150,24 @@ const Gallery = () => {
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              className="absolute top-2 right-2 text-xl bg-white text-primary hover:text-gray-700 rounded-full h-6 w-6 flex items-center justify-center"
+              className="absolute top-2 right-2 text-white drop-shadow-md bg-black/20 hover:text-gray-700 rounded-full h-6 w-6 flex items-center justify-center"
               onClick={closeModal}
             >
-              &times;
+              <FaTimes />
+            </button>
+            <button
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 text-xl bg-white text-tertiary-dark hover:text-gray-700 rounded-full h-6 w-6 flex items-center justify-center disabled:opacity-50"
+              onClick={showPreviousImage}
+              disabled={currentIndex === 0}
+            >
+              <FaArrowAltCircleLeft />
+            </button>
+            <button
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 text-xl bg-white text-tertiary-dark hover:text-gray-700 rounded-full h-6 w-6 flex items-center justify-center disabled:opacity-50"
+              onClick={showNextImage}
+              disabled={currentIndex === images.length - 1}
+            >
+              <FaArrowAltCircleRight />
             </button>
             <Image
               src={selectedImage.image}
