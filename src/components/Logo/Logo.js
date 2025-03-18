@@ -9,6 +9,7 @@ const Logo = () => {
       src="/images/logooo.png"
       priority
       style={{ height: "auto", width: "auto" }}
+      className="cursor-pointer"
     />
   );
 };

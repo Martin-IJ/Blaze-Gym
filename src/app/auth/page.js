@@ -73,7 +73,10 @@ const Auth = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-1" htmlFor="password">
+            <label
+              className="block text-sm font-medium mb-1"
+              htmlFor="password"
+            >
               Password
             </label>
             <input
@@ -97,11 +100,11 @@ const Auth = () => {
             {loading ? "Logging in..." : "Login"}
           </Button>
 
-          <Link href="/">
-              <p className="text-primary font-semibold text-center text-sm mt-4">
-                Back to Home
-              </p>
-          </Link>
+          <a href="/">
+            <p className="text-primary font-semibold text-center text-sm mt-4">
+              Back to Home
+            </p>
+          </a>
         </form>
       </div>
     </div>

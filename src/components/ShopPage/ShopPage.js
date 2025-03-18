@@ -31,9 +31,9 @@ export default function ShopPage() {
           throw new Error(data.message || "Failed to fetch products.");
         }
       } catch (error) {
-        toast.error(
-          error.message || "An error occurred while fetching products."
-        );
+        // toast.error(
+        //   error.message || "An error occurred while fetching products."
+        // );
       } finally {
         setLoading(false);
       }

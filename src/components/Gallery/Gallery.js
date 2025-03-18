@@ -8,6 +8,8 @@ import { Skeleton } from "../ui/skeleton";
 const Gallery = () => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchGalleryImages = async () => {
@@ -36,10 +38,10 @@ const Gallery = () => {
           throw new Error(data.message || "Failed to fetch gallery images.");
         }
       } catch (error) {
-        if (error.name === 'AbortError') {
-          toast.error("Request timed out. Please try again.");
+        if (error.name === "AbortError") {
+          // toast.error("Request timed out. Please try again.");
         } else {
-          toast.error(error.message || "An error occurred while fetching gallery images.");
+          // toast.error(error.message || "An error occurred while fetching gallery images.");
         }
       } finally {
         setLoading(false);
@@ -53,6 +55,16 @@ const Gallery = () => {
     e.target.src = "/images/fallback-image.png";
   };
 
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedImage(null);
+  };
+
   return (
     <div className="container min-h-[500px] mx-auto px-4 py-10">
       <h1 className="text-3xl font-bold text-center mb-8">
@@ -62,7 +74,10 @@ const Gallery = () => {
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {loading ? (
           Array.from({ length: 6 }).map((_, index) => (
-            <div key={index} className="border rounded-2xl shadow-md overflow-hidden">
+            <div
+              key={index}
+              className="border rounded-2xl shadow-md overflow-hidden"
+            >
               <Skeleton className="relative w-full h-52" />
             </div>
           ))
@@ -75,11 +90,12 @@ const Gallery = () => {
             <div
               key={image.id}
               className="border rounded-2xl shadow-md overflow-hidden"
+              onClick={() => handleImageClick(image)}
             >
               <div className="relative w-full h-52 overflow-hidden group">
                 <Image
                   fill
-                  alt={image.description || "Gallery image"}
+                  alt="Gallery image"
                   src={image.image}
                   className="scale-animation object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -98,6 +114,32 @@ const Gallery = () => {
           ))
         )}
       </div>
+
+      {isModalOpen && selectedImage && (
+        <div
+          className="fixed inset-0 z-50 px-1 flex items-center justify-center bg-black bg-opacity-75 backdrop-blur-sm"
+          onClick={closeModal}
+        >
+          <div
+            className="relative rounded-lg shadow-lg max-w-3xl w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="absolute top-2 right-2 text-xl bg-white text-primary hover:text-gray-700 rounded-full h-6 w-6 flex items-center justify-center"
+              onClick={closeModal}
+            >
+              &times;
+            </button>
+            <Image
+              src={selectedImage.image}
+              alt="Gallery image"
+              width={800}
+              height={600}
+              className="object-contain rounded-2xl"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
