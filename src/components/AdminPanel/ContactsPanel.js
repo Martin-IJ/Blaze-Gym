@@ -34,7 +34,7 @@ const ContactsPanel = () => {
         if (response.ok) {
           setContactData(data.data);
         } else {
-          throw new Error(data.message || "Failed to fetch contact details.");
+          // throw new Error(data.message || "Failed to fetch contact details.");
         }
       } catch (error) {
         toast.error(

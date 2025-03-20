@@ -1,6 +1,5 @@
 import React from "react";
-import { FaFacebook, FaInstagram } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa";
 
 const SocialMediaLinks = ({
   instagram,
@@ -17,9 +16,9 @@ const SocialMediaLinks = ({
   github,
 }) => {
   const socialIcon = [
-    { icon: <FaFacebook />, url: facebook },
-    { icon: <FaXTwitter />, url: twitter },
-    { icon: <FaInstagram />, url: instagram },,
+    { icon: <FaInstagram />, url: instagram },
+    { icon: <FaYoutube />, url: youtube },
+    { icon: <FaTiktok />, url: tiktok },
   ];
 
   return (
