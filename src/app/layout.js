@@ -35,8 +35,8 @@ export default function RootLayout({ children }) {
           property="og:description"
           content="Join Blaze Gym Fitness and ignite your fitness journey with expert coaching and top-tier equipment."
         />
-        <meta property="og:image" content="/images/og-image.jpg" />
-        <meta property="og:url" content="https://www.blazegymfitness.com" />
+        <meta property="og:image" content="https://www.blazegymfitness.fit/images/og-image.jpg" />
+        <meta property="og:url" content="https://www.blazegymfitness.fit" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
@@ -46,7 +46,7 @@ export default function RootLayout({ children }) {
           name="twitter:description"
           content="Join Blaze Gym Fitness and ignite your fitness journey with expert coaching and top-tier equipment."
         />
-        <meta name="twitter:image" content="/images/twitter-image.png" />
+        <meta name="twitter:image" content="https://www.blazegymfitness.fit/images/twitter-image.png" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -54,7 +54,7 @@ export default function RootLayout({ children }) {
             name: "Blaze Gym Fitness",
             description:
               "Join Blaze Gym Fitness and ignite your fitness journey with expert coaching and top-tier equipment.",
-            url: "https://www.blazegymfitness.com",
+            url: "https://www.blazegymfitness.fit",
             address: {
               "@type": "PostalAddress",
               streetAddress: "3 Alhaji hammed abokede street",
@@ -63,7 +63,7 @@ export default function RootLayout({ children }) {
               postalCode: "100242",
               addressCountry: "NG",
             },
-            telephone: "+234123456789",
+            telephone: "+2348089700589",
           })}
         </script>
       </head>
